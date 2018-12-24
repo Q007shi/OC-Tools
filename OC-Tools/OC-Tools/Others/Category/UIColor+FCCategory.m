@@ -11,7 +11,7 @@
 @implementation UIColor (FCCategory)
 
 //获取当前颜色的 RGBA 值
-- (struct RGBA)rgba{
+- (struct RGBA)fc_rgba{
     CGFloat r = 0;
     CGFloat g = 0;
     CGFloat b = 0;
@@ -20,12 +20,18 @@
     struct RGBA rgba = {r,g,b,a};
     return rgba;
 }
+//获取当前颜色的透明度 
+- (CGFloat)fc_alpha{
+    return CGColorGetAlpha(self.CGColor);
+}
 
-+ (instancetype)hexValue:(UInt32)hexValue{
-    
+//十六进制色值(0xffffff)转 UIColor
++ (instancetype)fc_hexValue:(UInt32)hexValue{
     return [UIColor colorWithRed:((CGFloat)((hexValue & 0xff0000) >> 16))/255.0 green:((CGFloat)((hexValue & 0xff00) >> 8))/255.0 blue:((CGFloat)(hexValue & 0xff))/255.0 alpha:1];
 }
-+ (instancetype)hexValueString:(NSString *)hexValueString{
+
+//十六进制色值字符串(0xffffff 活 #ffffff) 转 UIColor
++ (instancetype)fc_hexValueString:(NSString *)hexValueString{
     if ([hexValueString hasPrefix:@"0x"] || [hexValueString hasPrefix:@"#"]) {
         hexValueString = [hexValueString stringByReplacingOccurrencesOfString:@"0x" withString:@""];
         hexValueString = [hexValueString stringByReplacingOccurrencesOfString:@"#" withString:@""];
@@ -68,13 +74,21 @@
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
 }
 
-+(CGFloat) colorComponentFrom: (NSString *) string start: (NSUInteger) start length: (NSUInteger) length
++(CGFloat)colorComponentFrom: (NSString *) string start: (NSUInteger) start length: (NSUInteger) length
 {
     NSString *substring = [string substringWithRange: NSMakeRange(start, length)];
     NSString *fullHex = length == 2 ? substring : [NSString stringWithFormat: @"%@%@", substring, substring];
     unsigned hexComponent;
     [[NSScanner scannerWithString: fullHex] scanHexInt: &hexComponent];
     return hexComponent / 255.0;
+}
+
+//fromColor 到 toColor 的渐变色
++ (instancetype)fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent{
+    percent = MAX(0, MIN(1, percent));
+    struct RGBA fromRGBA = fromColor.fc_rgba;
+    struct RGBA toRGBA = toColor.fc_rgba;
+    return [UIColor colorWithRed:(fromRGBA.R + (toRGBA.R - fromRGBA.R)*percent) green:(fromRGBA.G + (toRGBA.G - fromRGBA.G)*percent) blue:(fromRGBA.B + (toRGBA.B - fromRGBA.B)*percent) alpha:1];
 }
 
 @end
