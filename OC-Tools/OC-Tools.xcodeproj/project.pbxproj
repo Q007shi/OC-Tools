@@ -12,6 +12,7 @@
 		244964CA21C8C9D80092A26D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244964C821C8C9D80092A26D /* LaunchScreen.storyboard */; };
 		244964CD21C8C9D80092A26D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 244964CC21C8C9D80092A26D /* main.m */; };
 		244964D921C8DAF60092A26D /* UIColor+FCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 244964D821C8DAF60092A26D /* UIColor+FCCategory.m */; };
+		46006942A62CDF2FF1B79BC6 /* libPods-OC-Tools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B798B06C0516CA25BBD74BC /* libPods-OC-Tools.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		244964CC21C8C9D80092A26D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		244964D721C8DAF60092A26D /* UIColor+FCCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+FCCategory.h"; sourceTree = "<group>"; };
 		244964D821C8DAF60092A26D /* UIColor+FCCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FCCategory.m"; sourceTree = "<group>"; };
+		2E168519841522A408FFDBCE /* Pods-OC-Tools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC-Tools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OC-Tools/Pods-OC-Tools.debug.xcconfig"; sourceTree = "<group>"; };
+		5B798B06C0516CA25BBD74BC /* libPods-OC-Tools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OC-Tools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C8B985593564C2A2B283A92 /* Pods-OC-Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC-Tools.release.xcconfig"; path = "Pods/Target Support Files/Pods-OC-Tools/Pods-OC-Tools.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46006942A62CDF2FF1B79BC6 /* libPods-OC-Tools.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				244964BC21C8C9D70092A26D /* OC-Tools */,
 				244964BB21C8C9D70092A26D /* Products */,
+				756ECAACF5881B7EA0F64DA0 /* Pods */,
+				7E516625128BB3E661370005 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +107,23 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		756ECAACF5881B7EA0F64DA0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E168519841522A408FFDBCE /* Pods-OC-Tools.debug.xcconfig */,
+				5C8B985593564C2A2B283A92 /* Pods-OC-Tools.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7E516625128BB3E661370005 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B798B06C0516CA25BBD74BC /* libPods-OC-Tools.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 244964D021C8C9D80092A26D /* Build configuration list for PBXNativeTarget "OC-Tools" */;
 			buildPhases = (
+				E3661763C642C4F15E1BFC84 /* [CP] Check Pods Manifest.lock */,
 				244964B621C8C9D70092A26D /* Sources */,
 				244964B721C8C9D70092A26D /* Frameworks */,
 				244964B821C8C9D70092A26D /* Resources */,
+				C2B59405A25D3CE27CCDC311 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +189,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C2B59405A25D3CE27CCDC311 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OC-Tools/Pods-OC-Tools-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OC-Tools/Pods-OC-Tools-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3661763C642C4F15E1BFC84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OC-Tools-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		244964B621C8C9D70092A26D /* Sources */ = {
@@ -303,6 +376,7 @@
 		};
 		244964D121C8C9D80092A26D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E168519841522A408FFDBCE /* Pods-OC-Tools.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -321,6 +395,7 @@
 		};
 		244964D221C8C9D80092A26D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C8B985593564C2A2B283A92 /* Pods-OC-Tools.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
