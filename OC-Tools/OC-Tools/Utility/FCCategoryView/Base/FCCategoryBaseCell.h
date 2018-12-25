@@ -12,12 +12,12 @@
 @interface FCCategoryBaseCell : UICollectionViewCell
 
 /** cell 显示内容 */
-@property(nonatomic,strong)FCCategoryBaseModel *cellModel;
+@property(nonatomic,strong)FCCategoryBaseCellModel *cellModel;
 
 /** 初始化子视图(子类重写必须先调 supper) */
 - (void)initializeView NS_REQUIRES_SUPER;
 
 /** 刷新当前 cell 的数据(子类重写必须先调 supper) */
-- (void)reloadData:(FCCategoryBaseModel *)cellModel NS_REQUIRES_SUPER;
+- (void)reloadData:(FCCategoryBaseCellModel *)cellModel NS_REQUIRES_SUPER;
 
 @end

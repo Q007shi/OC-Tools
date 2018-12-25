@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FCCategoryBaseModel : NSObject
+@interface FCCategoryBaseCellModel : NSObject
 
 /** cell的顺序 */
 @property(nonatomic,assign)NSUInteger index;

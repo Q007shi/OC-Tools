@@ -13,10 +13,11 @@
 		244964CD21C8C9D80092A26D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 244964CC21C8C9D80092A26D /* main.m */; };
 		244964D921C8DAF60092A26D /* UIColor+FCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 244964D821C8DAF60092A26D /* UIColor+FCCategory.m */; };
 		3AE8B820DFD3197792DD18A3 /* libPods-OC-Tools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A982DE38F6427FDBDA00D9E /* libPods-OC-Tools.a */; };
+		555037B921D267C5007870AE /* FCCategoryBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 555037B821D267C5007870AE /* FCCategoryBaseView.m */; };
 		5561BF6C21CF6FC6006C0F38 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF6B21CF6FC6006C0F38 /* MainTabBarController.m */; };
 		5561BF7121CF732E006C0F38 /* TestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF7021CF732E006C0F38 /* TestVC.m */; };
 		5561BF7421CF74E6006C0F38 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF7321CF74E6006C0F38 /* BaseNavigationController.m */; };
-		5561BF7B21CF7812006C0F38 /* FCCategoryBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF7A21CF7812006C0F38 /* FCCategoryBaseModel.m */; };
+		5561BF7B21CF7812006C0F38 /* FCCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF7A21CF7812006C0F38 /* FCCategoryBaseCellModel.m */; };
 		5561BF7E21CF7FA5006C0F38 /* FCCategoryBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF7D21CF7FA5006C0F38 /* FCCategoryBaseCell.m */; };
 		5561BF8521CFBB95006C0F38 /* FCCategoryCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF8421CFBB95006C0F38 /* FCCategoryCollectionView.m */; };
 		5561BF8921CFCDEC006C0F38 /* FCCategoryIndicatorCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF8821CFCDEC006C0F38 /* FCCategoryIndicatorCellModel.m */; };
@@ -34,6 +35,8 @@
 		244964D721C8DAF60092A26D /* UIColor+FCCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+FCCategory.h"; sourceTree = "<group>"; };
 		244964D821C8DAF60092A26D /* UIColor+FCCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FCCategory.m"; sourceTree = "<group>"; };
 		3A982DE38F6427FDBDA00D9E /* libPods-OC-Tools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OC-Tools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		555037B721D267C5007870AE /* FCCategoryBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCategoryBaseView.h; sourceTree = "<group>"; };
+		555037B821D267C5007870AE /* FCCategoryBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCCategoryBaseView.m; sourceTree = "<group>"; };
 		5561BF6A21CF6FC6006C0F38 /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		5561BF6B21CF6FC6006C0F38 /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		5561BF6D21CF700C006C0F38 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -42,8 +45,8 @@
 		5561BF7221CF74E6006C0F38 /* BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		5561BF7321CF74E6006C0F38 /* BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		5561BF7721CF77D1006C0F38 /* FCCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCategoryView.h; sourceTree = "<group>"; };
-		5561BF7921CF7812006C0F38 /* FCCategoryBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCategoryBaseModel.h; sourceTree = "<group>"; };
-		5561BF7A21CF7812006C0F38 /* FCCategoryBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCCategoryBaseModel.m; sourceTree = "<group>"; };
+		5561BF7921CF7812006C0F38 /* FCCategoryBaseCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCategoryBaseCellModel.h; sourceTree = "<group>"; };
+		5561BF7A21CF7812006C0F38 /* FCCategoryBaseCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCCategoryBaseCellModel.m; sourceTree = "<group>"; };
 		5561BF7C21CF7FA5006C0F38 /* FCCategoryBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCategoryBaseCell.h; sourceTree = "<group>"; };
 		5561BF7D21CF7FA5006C0F38 /* FCCategoryBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCCategoryBaseCell.m; sourceTree = "<group>"; };
 		5561BF8121CF893A006C0F38 /* FCCategoryViewDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCategoryViewDefines.h; sourceTree = "<group>"; };
@@ -189,10 +192,12 @@
 		5561BF7821CF77D9006C0F38 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				5561BF7921CF7812006C0F38 /* FCCategoryBaseModel.h */,
-				5561BF7A21CF7812006C0F38 /* FCCategoryBaseModel.m */,
+				5561BF7921CF7812006C0F38 /* FCCategoryBaseCellModel.h */,
+				5561BF7A21CF7812006C0F38 /* FCCategoryBaseCellModel.m */,
 				5561BF7C21CF7FA5006C0F38 /* FCCategoryBaseCell.h */,
 				5561BF7D21CF7FA5006C0F38 /* FCCategoryBaseCell.m */,
+				555037B721D267C5007870AE /* FCCategoryBaseView.h */,
+				555037B821D267C5007870AE /* FCCategoryBaseView.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -358,10 +363,11 @@
 				5561BF7E21CF7FA5006C0F38 /* FCCategoryBaseCell.m in Sources */,
 				244964CD21C8C9D80092A26D /* main.m in Sources */,
 				5561BF7421CF74E6006C0F38 /* BaseNavigationController.m in Sources */,
+				555037B921D267C5007870AE /* FCCategoryBaseView.m in Sources */,
 				5561BF6C21CF6FC6006C0F38 /* MainTabBarController.m in Sources */,
 				5561BF8521CFBB95006C0F38 /* FCCategoryCollectionView.m in Sources */,
 				5561BF7121CF732E006C0F38 /* TestVC.m in Sources */,
-				5561BF7B21CF7812006C0F38 /* FCCategoryBaseModel.m in Sources */,
+				5561BF7B21CF7812006C0F38 /* FCCategoryBaseCellModel.m in Sources */,
 				5561BF8921CFCDEC006C0F38 /* FCCategoryIndicatorCellModel.m in Sources */,
 				5561BF8C21CFD08E006C0F38 /* FCCategoryIndicatorCell.m in Sources */,
 				244964BF21C8C9D70092A26D /* AppDelegate.m in Sources */,

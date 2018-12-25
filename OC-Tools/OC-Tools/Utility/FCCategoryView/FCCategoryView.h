@@ -12,13 +12,16 @@
 //common
 #import "FCCategoryViewDefines.h"
 #import "FCCategoryIndicatorProtocol.h"
+#import "FCCategoryCollectionView.h"
 
 //Base
-#import "FCCategoryBaseModel.h"
+#import "FCCategoryBaseCellModel.h"
 #import "FCCategoryBaseCell.h"
+#import "FCCategoryBaseView.h"
 
 //Indicator
 #import "FCCategoryIndicatorCellModel.h"
+#import "FCCategoryIndicatorCell.h"
 
 
 #endif /* FCCategoryView_h */

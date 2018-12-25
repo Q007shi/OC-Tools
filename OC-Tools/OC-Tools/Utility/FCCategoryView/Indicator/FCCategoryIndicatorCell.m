@@ -32,7 +32,7 @@
     self.separatorLine.frame = CGRectMake(self.bounds.size.width-lineWidth+self.cellModel.cellSpacing*0.5, (self.bounds.size.height-lineHeight)*0.5, lineWidth, lineHeight);
 }
 
-- (void)reloadData:(FCCategoryBaseModel *)cellModel{
+- (void)reloadData:(FCCategoryBaseCellModel *)cellModel{
     [super reloadData:cellModel];
     FCCategoryIndicatorCellModel *indicatorCellModel = (FCCategoryIndicatorCellModel *)cellModel;
     self.separatorLine.backgroundColor = indicatorCellModel.separatorLineColor;

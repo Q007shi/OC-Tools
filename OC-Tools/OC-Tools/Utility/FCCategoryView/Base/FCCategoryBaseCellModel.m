@@ -6,9 +6,9 @@
 //  Copyright © 2018年 Ganggang Xie. All rights reserved.
 //
 
-#import "FCCategoryBaseModel.h"
+#import "FCCategoryBaseCellModel.h"
 
-@implementation FCCategoryBaseModel
+@implementation FCCategoryBaseCellModel
 
 - (CGFloat)cellWidth{
     if (_cellWidthZoomEnabled) {
