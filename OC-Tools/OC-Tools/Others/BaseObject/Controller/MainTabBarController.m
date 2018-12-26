@@ -7,6 +7,8 @@
 //
 
 #import "MainTabBarController.h"
+#import "TestVC.h"
+#import "ActionVC.h"
 
 @interface MainTabBarController ()
 
@@ -17,11 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self addChildVC:[TestVC new] title:@"测试" imageName:@""];
+    [self addChildVC:[TestVC new] title:@"测试" imageName:@"Image"];
+    [self addChildVC:[TestVC new] title:@"工具" imageName:@"Image"];
 }
 
 - (void)addChildVC:(UIViewController *)childVC title:(NSString *)title imageName:(NSString *)imageName{
     childVC.tabBarItem.title = title;
+    childVC.tabBarItem.image = [UIImage imageNamed:imageName];
     BaseNavigationController *navigationController = [[BaseNavigationController alloc]initWithRootViewController:childVC];
     [self addChildViewController:navigationController];
 }

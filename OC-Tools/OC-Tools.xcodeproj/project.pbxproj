@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		242571A521D20B3700F62434 /* ProjectUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571A421D20B3700F62434 /* ProjectUtil.m */; };
+		242571A821D20D9900F62434 /* UIView+CFFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571A721D20D9900F62434 /* UIView+CFFrame.m */; };
+		242571AB21D20DE500F62434 /* NSString+CFCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571AA21D20DE500F62434 /* NSString+CFCategory.m */; };
+		242571AE21D20ECB00F62434 /* NSDate+FCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571AD21D20ECB00F62434 /* NSDate+FCCategory.m */; };
+		242571B221D2114900F62434 /* FCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571B121D2114900F62434 /* FCImageView.m */; };
+		242571BA21D214F000F62434 /* ActionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571B921D214F000F62434 /* ActionVC.m */; };
 		244964BF21C8C9D70092A26D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 244964BE21C8C9D70092A26D /* AppDelegate.m */; };
 		244964C721C8C9D80092A26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244964C621C8C9D80092A26D /* Assets.xcassets */; };
 		244964CA21C8C9D80092A26D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244964C821C8C9D80092A26D /* LaunchScreen.storyboard */; };
@@ -24,6 +30,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		242571A321D20B3700F62434 /* ProjectUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectUtil.h; sourceTree = "<group>"; };
+		242571A421D20B3700F62434 /* ProjectUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectUtil.m; sourceTree = "<group>"; };
+		242571A621D20D9900F62434 /* UIView+CFFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CFFrame.h"; sourceTree = "<group>"; };
+		242571A721D20D9900F62434 /* UIView+CFFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CFFrame.m"; sourceTree = "<group>"; };
+		242571A921D20DE500F62434 /* NSString+CFCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+CFCategory.h"; sourceTree = "<group>"; };
+		242571AA21D20DE500F62434 /* NSString+CFCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+CFCategory.m"; sourceTree = "<group>"; };
+		242571AC21D20ECB00F62434 /* NSDate+FCCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+FCCategory.h"; sourceTree = "<group>"; };
+		242571AD21D20ECB00F62434 /* NSDate+FCCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+FCCategory.m"; sourceTree = "<group>"; };
+		242571B021D2114900F62434 /* FCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCImageView.h; sourceTree = "<group>"; };
+		242571B121D2114900F62434 /* FCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCImageView.m; sourceTree = "<group>"; };
+		242571B421D2126700F62434 /* CategoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryHeader.h; sourceTree = "<group>"; };
+		242571B521D212EF00F62434 /* BaseHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseHeader.h; sourceTree = "<group>"; };
+		242571B821D214F000F62434 /* ActionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionVC.h; sourceTree = "<group>"; };
+		242571B921D214F000F62434 /* ActionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionVC.m; sourceTree = "<group>"; };
 		244964BA21C8C9D70092A26D /* OC-Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OC-Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		244964BD21C8C9D70092A26D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		244964BE21C8C9D70092A26D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -70,6 +90,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		242571AF21D2113900F62434 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				242571B021D2114900F62434 /* FCImageView.h */,
+				242571B121D2114900F62434 /* FCImageView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		242571B321D2124C00F62434 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				242571B421D2126700F62434 /* CategoryHeader.h */,
+				242571B521D212EF00F62434 /* BaseHeader.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		242571B621D214CB00F62434 /* 功能 */ = {
+			isa = PBXGroup;
+			children = (
+				242571B721D214D800F62434 /* Controller */,
+			);
+			path = "功能";
+			sourceTree = "<group>";
+		};
+		242571B721D214D800F62434 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				242571B821D214F000F62434 /* ActionVC.h */,
+				242571B921D214F000F62434 /* ActionVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		244964B121C8C9D70092A26D = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +146,7 @@
 		244964BC21C8C9D70092A26D /* OC-Tools */ = {
 			isa = PBXGroup;
 			children = (
+				242571B321D2124C00F62434 /* Header */,
 				5561BF7521CF76C2006C0F38 /* Utility */,
 				244964D521C8D98F0092A26D /* Others */,
 				244964D321C8CA2D0092A26D /* Classes */,
@@ -102,6 +158,7 @@
 		244964D321C8CA2D0092A26D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				242571B621D214CB00F62434 /* 功能 */,
 				5561BF6E21CF730D006C0F38 /* 测试 */,
 			);
 			path = Classes;
@@ -135,6 +192,12 @@
 			children = (
 				244964D721C8DAF60092A26D /* UIColor+FCCategory.h */,
 				244964D821C8DAF60092A26D /* UIColor+FCCategory.m */,
+				242571A621D20D9900F62434 /* UIView+CFFrame.h */,
+				242571A721D20D9900F62434 /* UIView+CFFrame.m */,
+				242571A921D20DE500F62434 /* NSString+CFCategory.h */,
+				242571AA21D20DE500F62434 /* NSString+CFCategory.m */,
+				242571AC21D20ECB00F62434 /* NSDate+FCCategory.h */,
+				242571AD21D20ECB00F62434 /* NSDate+FCCategory.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -142,6 +205,7 @@
 		5561BF6821CF6F45006C0F38 /* BaseObject */ = {
 			isa = PBXGroup;
 			children = (
+				242571AF21D2113900F62434 /* View */,
 				5561BF6921CF6F60006C0F38 /* Controller */,
 			);
 			path = BaseObject;
@@ -171,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				5561BF7621CF779E006C0F38 /* FCCategoryView */,
+				242571A321D20B3700F62434 /* ProjectUtil.h */,
+				242571A421D20B3700F62434 /* ProjectUtil.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -354,17 +420,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242571AE21D20ECB00F62434 /* NSDate+FCCategory.m in Sources */,
 				244964D921C8DAF60092A26D /* UIColor+FCCategory.m in Sources */,
 				5561BF7E21CF7FA5006C0F38 /* FCCategoryBaseCell.m in Sources */,
 				244964CD21C8C9D80092A26D /* main.m in Sources */,
 				5561BF7421CF74E6006C0F38 /* BaseNavigationController.m in Sources */,
 				5561BF6C21CF6FC6006C0F38 /* MainTabBarController.m in Sources */,
+				242571A521D20B3700F62434 /* ProjectUtil.m in Sources */,
 				5561BF8521CFBB95006C0F38 /* FCCategoryCollectionView.m in Sources */,
 				5561BF7121CF732E006C0F38 /* TestVC.m in Sources */,
+				242571A821D20D9900F62434 /* UIView+CFFrame.m in Sources */,
 				5561BF7B21CF7812006C0F38 /* FCCategoryBaseModel.m in Sources */,
+				242571BA21D214F000F62434 /* ActionVC.m in Sources */,
+				242571AB21D20DE500F62434 /* NSString+CFCategory.m in Sources */,
 				5561BF8921CFCDEC006C0F38 /* FCCategoryIndicatorCellModel.m in Sources */,
 				5561BF8C21CFD08E006C0F38 /* FCCategoryIndicatorCell.m in Sources */,
 				244964BF21C8C9D70092A26D /* AppDelegate.m in Sources */,
+				242571B221D2114900F62434 /* FCImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

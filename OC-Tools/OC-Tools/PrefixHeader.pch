@@ -9,15 +9,18 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#import "TestVC.h"
-
-//Base控制器
-#import "BaseNavigationController.h"
+//基础类
+#import "BaseHeader.h"
 
 //分类
-#import "UIColor+FCCategory.h"
+#import "CategoryHeader.h"
 
-//Header
+//自定义框架
 #import "FCCategoryView.h"
+
+//第三方
+#import <UIImageView+WebCache.h>
+
+
 
 #endif /* PrefixHeader_pch */
