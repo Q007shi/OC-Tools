@@ -13,6 +13,7 @@
 		242571AE21D20ECB00F62434 /* NSDate+FCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571AD21D20ECB00F62434 /* NSDate+FCCategory.m */; };
 		242571B221D2114900F62434 /* FCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571B121D2114900F62434 /* FCImageView.m */; };
 		242571BA21D214F000F62434 /* ActionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571B921D214F000F62434 /* ActionVC.m */; };
+		24285B6C21D3294E004E470D /* FCCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24285B6A21D3294E004E470D /* FCCategoryBaseCellModel.m */; };
 		244964BF21C8C9D70092A26D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 244964BE21C8C9D70092A26D /* AppDelegate.m */; };
 		244964C721C8C9D80092A26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244964C621C8C9D80092A26D /* Assets.xcassets */; };
 		244964CA21C8C9D80092A26D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244964C821C8C9D80092A26D /* LaunchScreen.storyboard */; };
@@ -43,6 +44,8 @@
 		242571B521D212EF00F62434 /* BaseHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseHeader.h; sourceTree = "<group>"; };
 		242571B821D214F000F62434 /* ActionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionVC.h; sourceTree = "<group>"; };
 		242571B921D214F000F62434 /* ActionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionVC.m; sourceTree = "<group>"; };
+		24285B6A21D3294E004E470D /* FCCategoryBaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCategoryBaseCellModel.m; sourceTree = "<group>"; };
+		24285B6B21D3294E004E470D /* FCCategoryBaseCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCategoryBaseCellModel.h; sourceTree = "<group>"; };
 		244964BA21C8C9D70092A26D /* OC-Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OC-Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		244964BD21C8C9D70092A26D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		244964BE21C8C9D70092A26D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 		5561BF7821CF77D9006C0F38 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				24285B6B21D3294E004E470D /* FCCategoryBaseCellModel.h */,
+				24285B6A21D3294E004E470D /* FCCategoryBaseCellModel.m */,
 				5561BF7C21CF7FA5006C0F38 /* FCCategoryBaseCell.h */,
 				5561BF7D21CF7FA5006C0F38 /* FCCategoryBaseCell.m */,
 			);
@@ -419,6 +424,7 @@
 				244964D921C8DAF60092A26D /* UIColor+FCCategory.m in Sources */,
 				5561BF7E21CF7FA5006C0F38 /* FCCategoryBaseCell.m in Sources */,
 				244964CD21C8C9D80092A26D /* main.m in Sources */,
+				24285B6C21D3294E004E470D /* FCCategoryBaseCellModel.m in Sources */,
 				5561BF7421CF74E6006C0F38 /* BaseNavigationController.m in Sources */,
 				5561BF6C21CF6FC6006C0F38 /* MainTabBarController.m in Sources */,
 				242571A521D20B3700F62434 /* ProjectUtil.m in Sources */,

@@ -6,9 +6,9 @@
 //  Copyright © 2018年 Ganggang Xie. All rights reserved.
 //
 
-#import "FCCategoryBaseModel.h"
+#import "FCCategoryBaseCellModel.h"
 
-@interface FCCategoryIndicatorCellModel : FCCategoryBaseModel
+@interface FCCategoryIndicatorCellModel : FCCategoryBaseCellModel
 
 /** cell 之间是否显示分割线，默认 YES */
 @property(nonatomic,assign)BOOL separatorLineShowEnabled;

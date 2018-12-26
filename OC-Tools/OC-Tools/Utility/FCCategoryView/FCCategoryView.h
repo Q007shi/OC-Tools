@@ -14,7 +14,7 @@
 #import "FCCategoryIndicatorProtocol.h"
 
 //Base
-#import "FCCategoryBaseModel.h"
+#import "FCCategoryBaseCellModel.h"
 #import "FCCategoryBaseCell.h"
 
 //Indicator

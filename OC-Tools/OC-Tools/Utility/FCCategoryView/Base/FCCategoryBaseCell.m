@@ -21,7 +21,7 @@
     
 }
 //刷新当前 cell 的数据
-- (void)reloadData:(FCCategoryBaseModel *)cellModel{
+- (void)reloadData:(FCCategoryBaseCellModel *)cellModel{
     self.cellModel = cellModel;
 }
 
