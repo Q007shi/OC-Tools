@@ -22,7 +22,6 @@
 		5561BF6C21CF6FC6006C0F38 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF6B21CF6FC6006C0F38 /* MainTabBarController.m */; };
 		5561BF7121CF732E006C0F38 /* TestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF7021CF732E006C0F38 /* TestVC.m */; };
 		5561BF7421CF74E6006C0F38 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF7321CF74E6006C0F38 /* BaseNavigationController.m */; };
-		5561BF7B21CF7812006C0F38 /* FCCategoryBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF7A21CF7812006C0F38 /* FCCategoryBaseModel.m */; };
 		5561BF7E21CF7FA5006C0F38 /* FCCategoryBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF7D21CF7FA5006C0F38 /* FCCategoryBaseCell.m */; };
 		5561BF8521CFBB95006C0F38 /* FCCategoryCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF8421CFBB95006C0F38 /* FCCategoryCollectionView.m */; };
 		5561BF8921CFCDEC006C0F38 /* FCCategoryIndicatorCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF8821CFCDEC006C0F38 /* FCCategoryIndicatorCellModel.m */; };
@@ -62,8 +61,6 @@
 		5561BF7221CF74E6006C0F38 /* BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		5561BF7321CF74E6006C0F38 /* BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		5561BF7721CF77D1006C0F38 /* FCCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCategoryView.h; sourceTree = "<group>"; };
-		5561BF7921CF7812006C0F38 /* FCCategoryBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCategoryBaseModel.h; sourceTree = "<group>"; };
-		5561BF7A21CF7812006C0F38 /* FCCategoryBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCCategoryBaseModel.m; sourceTree = "<group>"; };
 		5561BF7C21CF7FA5006C0F38 /* FCCategoryBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCategoryBaseCell.h; sourceTree = "<group>"; };
 		5561BF7D21CF7FA5006C0F38 /* FCCategoryBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCCategoryBaseCell.m; sourceTree = "<group>"; };
 		5561BF8121CF893A006C0F38 /* FCCategoryViewDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCategoryViewDefines.h; sourceTree = "<group>"; };
@@ -255,8 +252,6 @@
 		5561BF7821CF77D9006C0F38 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				5561BF7921CF7812006C0F38 /* FCCategoryBaseModel.h */,
-				5561BF7A21CF7812006C0F38 /* FCCategoryBaseModel.m */,
 				5561BF7C21CF7FA5006C0F38 /* FCCategoryBaseCell.h */,
 				5561BF7D21CF7FA5006C0F38 /* FCCategoryBaseCell.m */,
 			);
@@ -430,7 +425,6 @@
 				5561BF8521CFBB95006C0F38 /* FCCategoryCollectionView.m in Sources */,
 				5561BF7121CF732E006C0F38 /* TestVC.m in Sources */,
 				242571A821D20D9900F62434 /* UIView+CFFrame.m in Sources */,
-				5561BF7B21CF7812006C0F38 /* FCCategoryBaseModel.m in Sources */,
 				242571BA21D214F000F62434 /* ActionVC.m in Sources */,
 				242571AB21D20DE500F62434 /* NSString+CFCategory.m in Sources */,
 				5561BF8921CFCDEC006C0F38 /* FCCategoryIndicatorCellModel.m in Sources */,
