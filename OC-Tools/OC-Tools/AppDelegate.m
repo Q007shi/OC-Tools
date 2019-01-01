@@ -11,6 +11,9 @@
 
 @interface AppDelegate ()
 
+/** <#aaa#> */
+@property(nonatomic,strong)UITableView *tableView;
+
 @end
 
 @implementation AppDelegate
@@ -20,7 +23,16 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [MainTabBarController new];
     [self.window makeKeyAndVisible];
+    [self test];
+    [self test];
     return YES;
+}
+
+-(void)test{
+    self.tableView = ({
+        UITableView *tableview = [UITableView new];
+        tableview;
+    });
 }
 
 
