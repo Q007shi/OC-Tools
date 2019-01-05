@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     [self addChildVC:[TestVC new] title:@"测试" imageName:@"Image"];
-    [self addChildVC:[TestVC new] title:@"工具" imageName:@"Image"];
+    [self addChildVC:[ActionVC new] title:@"工具" imageName:@"Image"];
 }
 
 - (void)addChildVC:(UIViewController *)childVC title:(NSString *)title imageName:(NSString *)imageName{

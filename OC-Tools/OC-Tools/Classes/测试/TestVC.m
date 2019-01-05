@@ -7,8 +7,9 @@
 //
 
 #import "TestVC.h"
+#import "User.h"
 
-@interface TestVC ()
+@interface TestVC ()<UserDelegate>
 
 @end
 
@@ -16,8 +17,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"测试";
     
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    User *user = [User new];
+    user.delegate = self;
+    [user abc];
+}
+
+- (int)test{
+    return 12;
 }
 
 
