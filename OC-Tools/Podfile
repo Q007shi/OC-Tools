@@ -11,5 +11,6 @@ target 'OC-Tools' do
   pod 'SVProgressHUD'
   pod 'MJExtension'
   pod 'Masonry'
+  pod 'CTMediator'
 
 end

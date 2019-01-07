@@ -110,23 +110,23 @@
                 NSLog(@"(%f,%f)",view.frame.origin.x,view.frame.origin.y);
                 NSLog(@"(%f,%f)",view.frame.size.width,view.frame.size.height);
                 NSLog(@"------------------");
-                NSLog(@"%@",[self.delegate tableView:self editActionsForRowAtIndexPath:indexPath]);
+//                NSLog(@"%@",[self.delegate tableView:tableView editActionsForRowAtIndexPath:indexPath]);
                 for (UIButton *actionBtn in view.subviews) {
                     //                    NSLog(@"%@",NSStringFromCGRect(actionBtn.frame));
                     //                    [actionBtn setTitle:@"111" forState:UIControlStateNormal];
                     //                    [actionBtn setImage:[UIImage imageNamed:@"Image"] forState:UIControlStateNormal];
                     //                    [actionBtn setBackgroundImage:[UIImage imageNamed:@"Image1"] forState:UIControlStateNormal];
-                    UITableViewRowAction *rowAction = [actionBtn valueForKey:@"action"];
-                    [actionBtn setAttributedTitle:[[NSAttributedString alloc]initWithString:rowAction.title attributes:@{NSForegroundColorAttributeName : rowAction.fc_textColor,NSFontAttributeName : rowAction.fc_font}] forState:UIControlStateNormal];
-                    if (rowAction.fc_image) {
-                        [actionBtn setImage:rowAction.fc_image forState:UIControlStateNormal];
-                    }
-                    if (rowAction.fc_backgroundImage) {
-                        [actionBtn setBackgroundImage:rowAction.fc_backgroundImage forState:UIControlStateNormal];
-                    }
-                    if (rowAction.backgroundColor) {
-                        actionBtn.backgroundColor = rowAction.backgroundColor;
-                    }
+//                    UITableViewRowAction *rowAction = [actionBtn valueForKey:@"action"];
+//                    [actionBtn setAttributedTitle:[[NSAttributedString alloc]initWithString:rowAction.title attributes:@{NSForegroundColorAttributeName : rowAction.fc_textColor,NSFontAttributeName : rowAction.fc_font}] forState:UIControlStateNormal];
+//                    if (rowAction.fc_image) {
+//                        [actionBtn setImage:rowAction.fc_image forState:UIControlStateNormal];
+//                    }
+//                    if (rowAction.fc_backgroundImage) {
+//                        [actionBtn setBackgroundImage:rowAction.fc_backgroundImage forState:UIControlStateNormal];
+//                    }
+//                    if (rowAction.backgroundColor) {
+//                        actionBtn.backgroundColor = rowAction.backgroundColor;
+//                    }
                     
                 }
                 
