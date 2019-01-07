@@ -125,7 +125,52 @@ struct DelegateFlags{
     }
     //cell 之间的间距
     self.innerCellSpacing = self.cellSpacing;
+    //内容的宽度
+    __block CGFloat totalItemWidth = [self getContentEdgeInsetLef];
+    //所有 Cell 的宽度
+    CGFloat totalCellWidth = 0.0;
+    for (NSUInteger i = 0; self.dataSource.count; i++) {
+        FCCategoryBaseCellModel *cellModel = self.dataSource[i];
+        cellModel.index = i;
+        cellModel.cellWidth = [self preferredCellWithAtIndex:i] + self.cellWidthIncrement;
+        totalCellWidth += cellModel.cellWidth;
+        cellModel.cellWidthZoomEnabled = self.cellWidthZoomEnabled;
+        cellModel.cellWidthZoomScale = 1.0;
+        cellModel.cellSpacing = self.cellSpacing;
+        if (i == self.dataSource.count - 1) {
+            totalItemWidth += cellModel.cellWidth + [self getContentEdgeInsetRight];
+        }else{
+            totalItemWidth += cellModel.cellWidth + self.cellSpacing;
+        }
+        if (i == self.selectedIndex) {
+            cellModel.selected = YES;
+            cellModel.cellWidthZoomScale = self.cellWidthZoomScale;
+        }else{
+            cellModel.selected = NO;
+        }
+        [self refreshCellModel:cellModel index:i];
+    }
     
+    //总内容宽度小于视图宽度，将 cellWidth 均分
+    if (self.averageCellSpacingEnabled && totalItemWidth < self.bounds.size.width) {
+        NSUInteger cellSpacingItemCount = self.dataSource.count - 1;
+        CGFloat totalCellSpacingWidth = self.bounds.size.width - totalCellWidth;
+        //如果内容左边距离是 Automatic，就加 1
+        if (self.contentEdgeInsetLeft == FCCategoryViewAutomaticDimension) {
+            cellSpacingItemCount += 1;
+        }else{
+            totalCellSpacingWidth -= self.contentEdgeInsetRight;
+        }
+        
+        CGFloat cellSpacing = 0;
+        if (cellSpacingItemCount > 0) {
+            cellSpacing = totalCellSpacingWidth/cellSpacingItemCount;
+        }
+        self.innerCellSpacing = cellSpacing;
+        [self.dataSource enumerateObjectsUsingBlock:^(FCCategoryBaseCellModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.cellSpacing = cellSpacing;
+        }];
+    }
 }
 
 
