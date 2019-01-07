@@ -9,5 +9,7 @@ target 'OC-Tools' do
 
   pod 'SDWebImage'
   pod 'SVProgressHUD'
+  pod 'MJExtension'
+  pod 'Masonry'
 
 end
