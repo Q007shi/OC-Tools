@@ -22,6 +22,9 @@
 		24A0BCB021D32AB50038BE46 /* FCCategoryBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5561BF7A21CF7812006C0F38 /* FCCategoryBaseCellModel.m */; };
 		24A0BCB421D333840038BE46 /* ActionVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A0BCB321D333840038BE46 /* ActionVCModel.m */; };
 		24A0BCB721D34D5F0038BE46 /* ActionVCList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24A0BCB621D34D5F0038BE46 /* ActionVCList.plist */; };
+		24AD0C1F21E2FE7200C40EEA /* LiveBroadcastVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0C1E21E2FE7200C40EEA /* LiveBroadcastVC.m */; };
+		24AD0C2221E2FF2300C40EEA /* Target_Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0C2121E2FF2300C40EEA /* Target_Actions.m */; };
+		24AD0C2821E301DF00C40EEA /* CTMediator+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0C2721E301DF00C40EEA /* CTMediator+Actions.m */; };
 		24B5075421DC68B5009B1963 /* UITableView+RowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B5075321DC68B5009B1963 /* UITableView+RowAction.m */; };
 		24CC963B21E0AEEE002A8CD0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC963A21E0AEEE002A8CD0 /* User.m */; };
 		3AE8B820DFD3197792DD18A3 /* libPods-OC-Tools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A982DE38F6427FDBDA00D9E /* libPods-OC-Tools.a */; };
@@ -65,6 +68,12 @@
 		24A0BCB221D333840038BE46 /* ActionVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionVCModel.h; sourceTree = "<group>"; };
 		24A0BCB321D333840038BE46 /* ActionVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionVCModel.m; sourceTree = "<group>"; };
 		24A0BCB621D34D5F0038BE46 /* ActionVCList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ActionVCList.plist; sourceTree = "<group>"; };
+		24AD0C1D21E2FE7200C40EEA /* LiveBroadcastVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveBroadcastVC.h; sourceTree = "<group>"; };
+		24AD0C1E21E2FE7200C40EEA /* LiveBroadcastVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveBroadcastVC.m; sourceTree = "<group>"; };
+		24AD0C2021E2FF2300C40EEA /* Target_Actions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Target_Actions.h; sourceTree = "<group>"; };
+		24AD0C2121E2FF2300C40EEA /* Target_Actions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Target_Actions.m; sourceTree = "<group>"; };
+		24AD0C2621E301DF00C40EEA /* CTMediator+Actions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTMediator+Actions.h"; sourceTree = "<group>"; };
+		24AD0C2721E301DF00C40EEA /* CTMediator+Actions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CTMediator+Actions.m"; sourceTree = "<group>"; };
 		24B5075221DC68B5009B1963 /* UITableView+RowAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+RowAction.h"; sourceTree = "<group>"; };
 		24B5075321DC68B5009B1963 /* UITableView+RowAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RowAction.m"; sourceTree = "<group>"; };
 		24CC963921E0AEEE002A8CD0 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -129,6 +138,7 @@
 		242571B621D214CB00F62434 /* 功能 */ = {
 			isa = PBXGroup;
 			children = (
+				24AD0C1A21E2FDDD00C40EEA /* Mediator */,
 				24A0BCB521D334190038BE46 /* SourceFile */,
 				24A0BCB121D3336B0038BE46 /* Model */,
 				242571B721D214D800F62434 /* Controller */,
@@ -179,6 +189,7 @@
 		244964D321C8CA2D0092A26D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				24AD0C1B21E2FE1C00C40EEA /* 直播 */,
 				242571B621D214CB00F62434 /* 功能 */,
 				5561BF6E21CF730D006C0F38 /* 测试 */,
 			);
@@ -257,6 +268,34 @@
 				24A0BCB621D34D5F0038BE46 /* ActionVCList.plist */,
 			);
 			path = SourceFile;
+			sourceTree = "<group>";
+		};
+		24AD0C1A21E2FDDD00C40EEA /* Mediator */ = {
+			isa = PBXGroup;
+			children = (
+				24AD0C2021E2FF2300C40EEA /* Target_Actions.h */,
+				24AD0C2121E2FF2300C40EEA /* Target_Actions.m */,
+				24AD0C2621E301DF00C40EEA /* CTMediator+Actions.h */,
+				24AD0C2721E301DF00C40EEA /* CTMediator+Actions.m */,
+			);
+			path = Mediator;
+			sourceTree = "<group>";
+		};
+		24AD0C1B21E2FE1C00C40EEA /* 直播 */ = {
+			isa = PBXGroup;
+			children = (
+				24AD0C1C21E2FE2500C40EEA /* Controller */,
+			);
+			path = "直播";
+			sourceTree = "<group>";
+		};
+		24AD0C1C21E2FE2500C40EEA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24AD0C1D21E2FE7200C40EEA /* LiveBroadcastVC.h */,
+				24AD0C1E21E2FE7200C40EEA /* LiveBroadcastVC.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		5561BF6821CF6F45006C0F38 /* BaseObject */ = {
@@ -483,11 +522,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24AD0C2821E301DF00C40EEA /* CTMediator+Actions.m in Sources */,
+				24AD0C1F21E2FE7200C40EEA /* LiveBroadcastVC.m in Sources */,
 				24A0BCB021D32AB50038BE46 /* FCCategoryBaseCellModel.m in Sources */,
 				242571AE21D20ECB00F62434 /* NSDate+FCCategory.m in Sources */,
 				244964D921C8DAF60092A26D /* UIColor+FCCategory.m in Sources */,
 				5561BF7E21CF7FA5006C0F38 /* FCCategoryBaseCell.m in Sources */,
 				244964CD21C8C9D80092A26D /* main.m in Sources */,
+				24AD0C2221E2FF2300C40EEA /* Target_Actions.m in Sources */,
 				5561BF7421CF74E6006C0F38 /* BaseNavigationController.m in Sources */,
 				24CC963B21E0AEEE002A8CD0 /* User.m in Sources */,
 				555037B921D267C5007870AE /* FCCategoryBaseView.m in Sources */,

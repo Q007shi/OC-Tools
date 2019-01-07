@@ -8,6 +8,7 @@
 
 #import "ActionVC.h"
 #import "ActionVCModel.h"
+#import "CTMediator+Actions.h"
 
 @interface ActionVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -219,6 +220,8 @@
 // Called after the user changes the selection.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [[CTMediator sharedInstance] LiveBroadcast:@{@"key" : @"value"}];
+    [[CTMediator sharedInstance] actionUrl:@"aa://Actions/LiveBroadcast?key=value"];
 }
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 //    NSLog(@"cell 取消选中时触发");
