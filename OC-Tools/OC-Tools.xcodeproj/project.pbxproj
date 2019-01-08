@@ -25,6 +25,7 @@
 		24AD0C1F21E2FE7200C40EEA /* LiveBroadcastVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0C1E21E2FE7200C40EEA /* LiveBroadcastVC.m */; };
 		24AD0C2221E2FF2300C40EEA /* Target_Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0C2121E2FF2300C40EEA /* Target_Actions.m */; };
 		24AD0C2821E301DF00C40EEA /* CTMediator+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0C2721E301DF00C40EEA /* CTMediator+Actions.m */; };
+		24AD0C2D21E34CEB00C40EEA /* CustomContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AD0C2C21E34CEB00C40EEA /* CustomContainerVC.m */; };
 		24B5075421DC68B5009B1963 /* UITableView+RowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B5075321DC68B5009B1963 /* UITableView+RowAction.m */; };
 		24CC963B21E0AEEE002A8CD0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC963A21E0AEEE002A8CD0 /* User.m */; };
 		3AE8B820DFD3197792DD18A3 /* libPods-OC-Tools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A982DE38F6427FDBDA00D9E /* libPods-OC-Tools.a */; };
@@ -74,6 +75,8 @@
 		24AD0C2121E2FF2300C40EEA /* Target_Actions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Target_Actions.m; sourceTree = "<group>"; };
 		24AD0C2621E301DF00C40EEA /* CTMediator+Actions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTMediator+Actions.h"; sourceTree = "<group>"; };
 		24AD0C2721E301DF00C40EEA /* CTMediator+Actions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CTMediator+Actions.m"; sourceTree = "<group>"; };
+		24AD0C2B21E34CEB00C40EEA /* CustomContainerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomContainerVC.h; sourceTree = "<group>"; };
+		24AD0C2C21E34CEB00C40EEA /* CustomContainerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomContainerVC.m; sourceTree = "<group>"; };
 		24B5075221DC68B5009B1963 /* UITableView+RowAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+RowAction.h"; sourceTree = "<group>"; };
 		24B5075321DC68B5009B1963 /* UITableView+RowAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RowAction.m"; sourceTree = "<group>"; };
 		24CC963921E0AEEE002A8CD0 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -189,6 +192,7 @@
 		244964D321C8CA2D0092A26D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				24AD0C2921E34CBF00C40EEA /* 容器控制器 */,
 				24AD0C1B21E2FE1C00C40EEA /* 直播 */,
 				242571B621D214CB00F62434 /* 功能 */,
 				5561BF6E21CF730D006C0F38 /* 测试 */,
@@ -294,6 +298,23 @@
 			children = (
 				24AD0C1D21E2FE7200C40EEA /* LiveBroadcastVC.h */,
 				24AD0C1E21E2FE7200C40EEA /* LiveBroadcastVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24AD0C2921E34CBF00C40EEA /* 容器控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				24AD0C2A21E34CCA00C40EEA /* Controller */,
+			);
+			path = "容器控制器";
+			sourceTree = "<group>";
+		};
+		24AD0C2A21E34CCA00C40EEA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24AD0C2B21E34CEB00C40EEA /* CustomContainerVC.h */,
+				24AD0C2C21E34CEB00C40EEA /* CustomContainerVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -531,6 +552,7 @@
 				244964CD21C8C9D80092A26D /* main.m in Sources */,
 				24AD0C2221E2FF2300C40EEA /* Target_Actions.m in Sources */,
 				5561BF7421CF74E6006C0F38 /* BaseNavigationController.m in Sources */,
+				24AD0C2D21E34CEB00C40EEA /* CustomContainerVC.m in Sources */,
 				24CC963B21E0AEEE002A8CD0 /* User.m in Sources */,
 				555037B921D267C5007870AE /* FCCategoryBaseView.m in Sources */,
 				5561BF6C21CF6FC6006C0F38 /* MainTabBarController.m in Sources */,

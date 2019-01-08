@@ -30,5 +30,7 @@
 
 /** <#aaa#> */
 @property(nonatomic,copy)NSString *title;
+/** <#aaa#> */
+@property(nonatomic,copy)NSString *url;
 
 @end

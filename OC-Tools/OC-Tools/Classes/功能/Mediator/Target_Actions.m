@@ -8,6 +8,7 @@
 
 #import "Target_Actions.h"
 #import "LiveBroadcastVC.h"
+#import "CustomContainerVC.h"
 
 
 @implementation Target_Actions
@@ -15,6 +16,9 @@
 - (id)Action_LiveBroadcast:(NSDictionary *)params{
     NSLog(@"%@",params);
     return [LiveBroadcastVC new];
+}
+- (id)Action_ContainerVC:(NSDictionary *)params{
+    return [CustomContainerVC new];
 }
 
 @end

@@ -63,6 +63,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@""];
+    ActionVCModel *model = self.dataArray[indexPath.section];
+    ActionModel *actionM = model.actions[indexPath.row];
+    cell.textLabel.text = actionM.title;
     UIButton *btn = [cell viewWithTag:101];
     if (!btn) {
         btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -221,7 +224,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    [[CTMediator sharedInstance] LiveBroadcast:@{@"key" : @"value"}];
-    [[CTMediator sharedInstance] actionUrl:@"aa://Actions/LiveBroadcast?key=value"];
+    
+    ActionVCModel *model = self.dataArray[indexPath.section];
+    ActionModel *actionM = model.actions[indexPath.row];
+    [[CTMediator sharedInstance] actionUrl:actionM.url];
+    
+//    [[CTMediator sharedInstance] actionUrl:@"aa://Actions/LiveBroadcast?key=value"];
 }
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 //    NSLog(@"cell 取消选中时触发");
@@ -274,14 +282,20 @@
     
 }
 
-//// Moving/reordering
-//
-//// Allows customization of the target row for a particular row as it is being moved/reordered
-//- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath;
-//
+//// Moving/reordering(移动和重新排序)
+// tableView 的 editing 为 YES 时，到达其它 cell 位置时触发。
+//sourceIndexPath：起始位置
+//proposedDestinationIndexPath：到达 cell 的位置
+//返回值 为当前移动cell 的放置位置
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath{
+    return proposedDestinationIndexPath;
+}
+
 //// Indentation
 //
-//- (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath; // return 'depth' of row for hierarchies
+- (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return indexPath.row;
+}
 //
 //// Copy/Paste.  All three methods must be implemented by the delegate.
 //

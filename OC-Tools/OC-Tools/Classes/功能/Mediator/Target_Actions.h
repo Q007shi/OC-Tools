@@ -12,5 +12,6 @@
 @interface Target_Actions : NSObject
 
 - (id)Action_LiveBroadcast:(NSDictionary *)params;
+- (id)Action_ContainerVC:(NSDictionary *)params;
 
 @end
