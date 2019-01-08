@@ -11,13 +11,13 @@
 struct DelegateFlags{
     unsigned int didSelectedItemAtIndexFlag : 1;
     unsigned int didClickSelectedItemAtIndexFlag : 1;
-    unsigned int didScrollSelectedItemAtIndexFlagt : 1;
-    unsigned int contentScrollViewTransitionToIndexFlag : 1;
+    unsigned int didScrollSelectedItemAtIndexFlag : 1;
+    unsigned int didClickedItemContentScrollViewTransitionToIndexFlag : 1;
     unsigned int scrollingFromLeftIndexToRightIndexFlag : 1;
     
 };
 
-@interface FCCategoryBaseView ()
+@interface FCCategoryBaseView ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
 /** 代理标记 */
 @property(nonatomic,assign)struct DelegateFlags delegateFlag;
@@ -53,21 +53,6 @@ struct DelegateFlags{
     return self;
 }
 
-- (void)setDelegate:(id<FCCategoryViewDelegate>)delegate{
-    _delegate = delegate;
-    
-    //点击选中和滚动选中都会调用该方法
-    _delegateFlag.didSelectedItemAtIndexFlag = [delegate respondsToSelector:@selector(categoryView:didSelectedItemAtIndex:)];
-    //点击选中时触发
-    _delegateFlag.didClickSelectedItemAtIndexFlag = [delegate respondsToSelector:@selector(categoryView:didClickSelectedItemAtIndex:)];
-    //滚动 contentScrollView 时选中出发
-    _delegateFlag.didScrollSelectedItemAtIndexFlagt = [delegate respondsToSelector:@selector(categoryView:didScrollSelectedItemAtIndex:)];
-    //点击选中时 contentScrollView 滚到到对应位置
-    _delegateFlag.contentScrollViewTransitionToIndexFlag = [delegate respondsToSelector:@selector(categoryView:contentScrollViewTransitionToIndex:)];
-    //正在滚动中的回调
-    _delegateFlag.scrollingFromLeftIndexToRightIndexFlag = [delegate respondsToSelector:@selector(categoryView:scrollingFromLeftIndex:toRightIndex:ratio:)];
-}
-
 #pragma mark - 初始化 Data
 - (void)initializeData{
     _dataSource = [NSMutableArray array];
@@ -86,16 +71,62 @@ struct DelegateFlags{
 }
 #pragma mark - 初始化 UI
 - (void)initializeViews{
-    self.collectionView = ({
-        UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        FCCategoryCollectionView *collectionView = [[FCCategoryCollectionView alloc]initWithFrame:self.bounds collectionViewLayout:flowLayout];
-        collectionView.backgroundColor = [UIColor clearColor];
-        collectionView.showsVerticalScrollIndicator = NO;
-        collectionView.showsHorizontalScrollIndicator = NO;
-        collectionView;
-    });
+    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    _collectionView = [[FCCategoryCollectionView alloc]initWithFrame:self.bounds collectionViewLayout:layout];
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    self.collectionView.showsVerticalScrollIndicator = NO;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    self.collectionView.scrollsToTop = NO;
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    [self.collectionView registerClass:[self preferredCellClass] forCellWithReuseIdentifier:NSStringFromClass([self preferredCellClass])];
     [self addSubview:self.collectionView];
+}
+
+
+- (void)reloadData{
+    [self refreshDataSource];
+    [self refreshState];
+    //取消布局
+    [self.collectionView.collectionViewLayout invalidateLayout];
+    [self.collectionView reloadData];
+}
+
+- (void)reloadCellAtIndex:(NSUInteger)index{
+    
+    if (index >= self.dataSource.count) return;
+    
+    FCCategoryBaseCellModel *cellModel = self.dataSource[index];
+    [self refreshCellModel:cellModel index:index];
+    FCCategoryBaseCell *cell = (FCCategoryBaseCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    [cell reloadData:cellModel];
+}
+
+- (void)selectItemAtIndex:(NSUInteger)index{
+    [self selectedCellAtIndex:index isClicked:YES];
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.collectionView.frame = self.bounds;
+    [self reloadData];
+}
+
+#pragma mark - setter 方法
+- (void)setDelegate:(id<FCCategoryViewDelegate>)delegate{
+    _delegate = delegate;
+    
+    //点击选中和滚动选中都会调用该方法
+    _delegateFlag.didSelectedItemAtIndexFlag = [delegate respondsToSelector:@selector(categoryView:didSelectedItemAtIndex:)];
+    //点击选中时触发
+    _delegateFlag.didClickSelectedItemAtIndexFlag = [delegate respondsToSelector:@selector(categoryView:didClickSelectedItemAtIndex:)];
+    //滚动 contentScrollView 时选中出发
+    _delegateFlag.didScrollSelectedItemAtIndexFlag = [delegate respondsToSelector:@selector(categoryView:didScrollSelectedItemAtIndex:)];
+    //点击选中时 contentScrollView 滚到到对应位置
+    _delegateFlag.didClickedItemContentScrollViewTransitionToIndexFlag = [delegate respondsToSelector:@selector(categoryView:contentScrollViewTransitionToIndex:)];
+    //正在滚动中的回调
+    _delegateFlag.scrollingFromLeftIndexToRightIndexFlag = [delegate respondsToSelector:@selector(categoryView:scrollingFromLeftIndex:toRightIndex:ratio:)];
 }
 
 - (void)setDefaultSelectedIndex:(NSUInteger)defaultSelectedIndex{
@@ -109,37 +140,13 @@ struct DelegateFlags{
     _contentScrollView = contentScrollView;
     [contentScrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
 }
-- (void)reloadData{
-    [self refreshDataSource];
-    [self refreshState];
-    //取消布局
-    [self.collectionView.collectionViewLayout invalidateLayout];
-    [self.collectionView reloadData];
-}
-
-- (void)reloadCellAtIndex:(NSUInteger)index{
-    if (index >= self.dataSource.count) return;
-    FCCategoryBaseCellModel *cellModel = self.dataSource[index];
-    [self refreshCellModel:cellModel index:index];
-    FCCategoryBaseCell *cell = (FCCategoryBaseCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-    [cell reloadData:cellModel];
-}
-
-- (void)selectItemAtIndex:(NSUInteger)index{
-    [self selectedCellAtIndex:index isClicked:YES];
-}
-
-- (void)layoutSubviews{
-    [super layoutSubviews];
-    [self reloadData];
-}
 
 #pragma mark - subclass override
 - (void)refreshDataSource{
     
 }
 - (void)refreshState{
-    if (self.selectedIndex >= self.dataSource.count) {
+    if (self.selectedIndex < 0 || self.selectedIndex >= self.dataSource.count) {
         _selectedIndex = 0;
     }
 
@@ -147,28 +154,28 @@ struct DelegateFlags{
     
     //cell 之间的间距
     self.innerCellSpacing = self.cellSpacing;
-    //内容的宽度
+    //总的内容高度(左边距+cell总宽度+总cellSpacing+右边距)
     __block CGFloat totalItemWidth = [self getContentEdgeInsetLef];
-    //所有 Cell 的宽度
+    //总的 cell 宽度
     __block CGFloat totalCellWidth = 0.0;
     for (NSUInteger i = 0; self.dataSource.count; i++) {
         FCCategoryBaseCellModel *cellModel = self.dataSource[i];
         cellModel.index = i;
         cellModel.cellWidth = [self preferredCellWithAtIndex:i] + self.cellWidthIncrement;
-        totalCellWidth += cellModel.cellWidth;
         cellModel.cellWidthZoomEnabled = self.cellWidthZoomEnabled;
-        cellModel.cellWidthZoomScale = 1.0;
-        cellModel.cellSpacing = self.cellSpacing;
-        if (i == self.dataSource.count - 1) {
-            totalItemWidth += cellModel.cellWidth + [self getContentEdgeInsetRight];
-        }else{
-            totalItemWidth += cellModel.cellWidth + self.cellSpacing;
-        }
+        cellModel.cellSpacing = self.innerCellSpacing;
         if (i == self.selectedIndex) {
             cellModel.selected = YES;
             cellModel.cellWidthZoomScale = self.cellWidthZoomScale;
         }else{
             cellModel.selected = NO;
+            cellModel.cellWidthZoomScale = 1.0;
+        }
+        totalCellWidth += cellModel.cellWidth;
+        if (i == self.dataSource.count - 1) {
+            totalItemWidth += cellModel.cellWidth + [self getContentEdgeInsetRight];
+        }else{
+            totalItemWidth += cellModel.cellWidth + self.innerCellSpacing;
         }
         [self refreshCellModel:cellModel index:i];
     }
@@ -199,20 +206,24 @@ struct DelegateFlags{
         }];
     }
     
-/**-------------- 选中居中 -----------------*/
+/**-------------- 初始化居中 -----------------*/
     //选中 cell 的起始位置
     __block CGFloat frameXOfSelectedCell = self.innerCellSpacing;
     //选中 cell 的宽度
     __block CGFloat selectedCellWidth = 0;
     //
-    totalItemWidth = self.innerCellSpacing;
+    totalItemWidth = [self getContentEdgeInsetLef];
     [self.dataSource enumerateObjectsUsingBlock:^(FCCategoryBaseCellModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (idx < self.selectedIndex) {
-            frameXOfSelectedCell += obj.cellWidth + obj.cellSpacing;
-        }else{
+            frameXOfSelectedCell += obj.cellWidth + self.innerCellSpacing;
+        }else if(idx == self.selectedIndex){
             selectedCellWidth = obj.cellWidth;
         }
-        totalItemWidth += obj.cellWidth + self.innerCellSpacing;
+        if (idx == self.dataSource.count - 1) {
+            totalItemWidth += obj.cellWidth + [self getContentEdgeInsetRight];
+        }else{
+            totalItemWidth += obj.cellWidth + self.innerCellSpacing;
+        }
     }];
     
     CGFloat minX = 0;
@@ -222,7 +233,7 @@ struct DelegateFlags{
 }
 
 
-- (BOOL)_selectCellAtIndex:(NSInteger)targetIndex handleContentScrollView:(BOOL)handleContentScrollView isClicked:(BOOL)isClicked{
+- (BOOL)selectCellAtIndex:(NSInteger)targetIndex isClicked:(BOOL)isClicked{
     if (targetIndex >= self.dataSource.count) {
         return NO;
     }
@@ -234,7 +245,7 @@ struct DelegateFlags{
                 [self.delegate categoryView:self didClickSelectedItemAtIndex:targetIndex];
             }
         }else{
-            if (self.delegateFlag.didScrollSelectedItemAtIndexFlagt) {
+            if (self.delegateFlag.didScrollSelectedItemAtIndexFlag) {
                 [self.delegate categoryView:self didScrollSelectedItemAtIndex:targetIndex];
             }
         }
@@ -255,7 +266,42 @@ struct DelegateFlags{
     FCCategoryBaseCell *selectedCell = (FCCategoryBaseCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:targetIndex inSection:0]];
     [selectedCell reloadData:selectedCellModel];
     
+    //忽略缩放效果
+    
+    //
+    if (isClicked) {
+        if (self.delegateFlag.didClickedItemContentScrollViewTransitionToIndexFlag) {
+            [self.delegate categoryView:self didClickedItemContentScrollViewTransitionToIndex:targetIndex];
+        }else{
+            [self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:YES];
+        }
+    }
+    _selectedIndex = targetIndex;
+    if (isClicked) {
+        if (self.delegateFlag.didClickSelectedItemAtIndexFlag) {
+            [self.delegate categoryView:self didClickSelectedItemAtIndex:targetIndex];
+        }
+    }else {
+        if (self.delegateFlag.didScrollSelectedItemAtIndexFlag) {
+            [self.delegate categoryView:self didScrollSelectedItemAtIndex:targetIndex];
+        }
+    }
+    if (self.delegateFlag.didSelectedItemAtIndexFlag) {
+        [self.delegate categoryView:self didSelectedItemAtIndex:targetIndex];
+    }
+    
     return YES;
+}
+
+- (void)refreshSelectedCellModel:(FCCategoryBaseCellModel *)selectedCellModel unselectedCellModel:(FCCategoryBaseCellModel *)unselectedCellModel{
+    selectedCellModel.selected = YES;
+    selectedCellModel.cellWidthZoomScale = self.cellWidthZoomScale;
+    unselectedCellModel.selected = NO;
+    unselectedCellModel.cellWidthZoomScale = 1.0;
+}
+//关联的contentScrollView的contentOffset发生了改变
+- (void)contentOffsetOfContentScrollViewDidChanged:(CGFloat)contentOffset{
+    
 }
 
 #pragma mark - Private，私有方法

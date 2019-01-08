@@ -12,7 +12,7 @@
 @interface FCCategoryBaseView : UIView
 
 /** 标题 collectionView */
-@property(nonatomic,strong)FCCategoryCollectionView *collectionView;
+@property(nonatomic,strong,readonly)FCCategoryCollectionView *collectionView;
 /** 标题信息集合 */
 @property(nonatomic,strong)NSArray<FCCategoryBaseCellModel *> *dataSource;
 /** 事件协议 */
@@ -49,7 +49,8 @@
 
 /** 当配置属性被修改时，调用该方法刷新配置(初始化时不用调用) */
 - (void)reloadData;
-/** 刷新指定的 index 的 cell */
+/** 刷新指定的 index 的 cell
+内部会触发`- (void)refreshCellModel:(JXCategoryBaseCellModel *)cellModel index:(NSInteger)index`方法进行cellModel刷新 */
 - (void)reloadCellAtIndex:(NSUInteger)index;
 
 #pragma mark - Subclass use
@@ -128,11 +129,14 @@
 /** 滚动 contentScrollView 时选中出发 */
 - (void)categoryView:(FCCategoryBaseView *)categoryView didScrollSelectedItemAtIndex:(NSUInteger)index;
 
-/** 点击选中时 contentScrollView 滚到到对应位置
- *  默认：[self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0)
- * 通过该代理方法，自定义 contentScrollView 的滚动位置
+/**
+ 只有点击的选中才会调用！！！
+ 因为用户点击，contentScrollView即将过渡到目标index的位置。内部默认实现`[self.contentScrollView setContentOffset:CGPointMake(targetIndex*self.contentScrollView.bounds.size.width, 0) animated:YES];`。如果实现该代理方法，以自定义实现为准。比如将animated设置为NO，点击切换时无需滚动效果。类似于今日头条APP。
+ 
+ @param categoryView categoryView description
+ @param index index description
  */
-- (void)categoryView:(FCCategoryBaseView *)categoryView contentScrollViewTransitionToIndex:(NSUInteger)index;
+- (void)categoryView:(FCCategoryBaseView *)categoryView didClickedItemContentScrollViewTransitionToIndex:(NSInteger)index;
 
 /**
  正在滚动中的回调

@@ -21,6 +21,9 @@
 //自定义框架
 #import "FCCategoryView.h"
 
+//工具类
+#import "UtilHeader.h"
+
 //第三方
 #import <UIImageView+WebCache.h>
 #import <MJExtension.h>

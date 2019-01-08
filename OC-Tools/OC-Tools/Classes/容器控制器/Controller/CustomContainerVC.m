@@ -13,6 +13,7 @@
 @interface CustomContainerVC (){
     UIViewController *v1;
     UIViewController *v2;
+    BOOL _isAnimationing;
 }
 
 @end
@@ -32,8 +33,11 @@
 }
 
 - (void)change{
-    [self hideContentController:v2];
-    [self cycleFromViewController:v1 toViewController:v2];
+    if ([self.childViewControllers containsObject:v2]) {
+        [self cycleFromViewController:v2 toViewController:v1];
+    }else{
+        [self cycleFromViewController:v1 toViewController:v2];
+    }
 }
 
 
@@ -62,6 +66,8 @@
 //这个往往是最重要的,也是我们可以真正自定义的地方,主要涉及到自定的视图切换动效等。
 
 - (void)cycleFromViewController: (UIViewController*) oldVC toViewController: (UIViewController*) newVC { // Prepare the two view controllers for the change.
+    if(_isAnimationing) return;
+    _isAnimationing = YES;
     [oldVC willMoveToParentViewController:nil];
     [self addChildViewController:newVC]; // Get the start frame of the new view controller and the end frame // for the old view controller. Both rectangles are offscreen. //设置newVC的frame
     CGRect rect = self.view.bounds;
@@ -75,6 +81,7 @@
     } completion:^(BOOL finished) { // Remove the old view controller and send the final // notification to the new view controller.
         [oldVC removeFromParentViewController];
         [newVC didMoveToParentViewController:self];
+        self->_isAnimationing = NO;
     }];
 }
 
