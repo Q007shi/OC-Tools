@@ -47,7 +47,8 @@
 - (void)displayContentController: (UIViewController*) content {
     //the addChildViewController: method calls the child’s willMoveToParentViewController:
     [self addChildViewController:content];
-    content.view.frame = self.view.bounds;
+//    content.view.frame = self.view.bounds;
+    content.view.frame = CGRectMake(100, 100, 100, 100);
     [self.view addSubview:content.view];
     [content didMoveToParentViewController:self];
 }

@@ -24,15 +24,14 @@
     self.window.rootViewController = [MainTabBarController new];
     [self.window makeKeyAndVisible];
     [self test];
-    [self test];
     return YES;
 }
 
 -(void)test{
-    self.tableView = ({
-        UITableView *tableview = [UITableView new];
-        tableview;
-    });
+    NSString *regex = @"^(0x|#)(([a-zA-Z0-9]{3})|([a-zA-Z0-9]{6}))";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    bool b = [emailTest evaluateWithObject:@"#000"];
+    NSLog(@"%zd",b);
 }
 
 

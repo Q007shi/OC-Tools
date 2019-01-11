@@ -19,7 +19,16 @@
  @param regex 正则表达式字符串
  @return 截取结果，如果异常返回 nil
  */
--(NSArray<NSTextCheckingResult *> *)trimSourceStringWithRegex:(NSString *)regex;
+-(NSArray<NSTextCheckingResult *> *)fc_trimSourceStringWithRegex:(NSString *)regex;
+
+
+/**
+ 对当前字符，根据正则表达式 regex 进行匹配
+
+ @param regex 正则表达式
+ @return 匹配结果
+ */
+- (BOOL)fc_evaluateWithRegex:(nonnull NSString *)regex;
 
 @end
 

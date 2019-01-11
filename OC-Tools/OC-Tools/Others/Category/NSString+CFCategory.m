@@ -16,7 +16,7 @@
 }
 
 //根据正则表达式字符串 regex 将 sourceString 截取，并将截取结果返回
-- (NSArray<NSTextCheckingResult *> *)trimSourceStringWithRegex:(NSString *)regex{
+- (NSArray<NSTextCheckingResult *> *)fc_trimSourceStringWithRegex:(NSString *)regex{
     NSError *error = nil;
     NSRegularExpression *re = [NSRegularExpression regularExpressionWithPattern:regex options:NSRegularExpressionCaseInsensitive error:&error];
     if (error) {
@@ -24,6 +24,15 @@
     }else{
         return [re matchesInString:self options:0 range:NSMakeRange(0, self.length)];
     }
+}
+
+//对当前字符，根据正则表达式 regex 进行匹配
+- (BOOL)fc_evaluateWithRegex:(nonnull NSString *)regex{
+    if (self.fc_isEmpty || regex.fc_isEmpty) {
+        return NO;
+    }
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [predicate evaluateWithObject:self];
 }
 
 @end

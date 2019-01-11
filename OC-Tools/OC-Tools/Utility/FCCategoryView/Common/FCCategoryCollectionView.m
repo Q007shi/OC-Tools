@@ -17,4 +17,14 @@
     }
 }
 
+- (void)setIndicators:(NSArray<UIView<FCCategoryIndicatorProtocol> *> *)indicators{
+    for (UIView *indicator in indicators) {
+        [indicator removeFromSuperview];
+    }
+    _indicators = indicators;
+    for (UIView *indicator in indicators) {
+        [self addSubview:indicator];
+    }
+}
+
 @end

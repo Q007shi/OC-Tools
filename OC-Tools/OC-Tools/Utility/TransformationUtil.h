@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-/** 转换工具 */
+/** 过度工具 */
 @interface TransformationUtil : NSObject
 
 /**
- 值转换工具，将 fromValue 转换为 toValue
+ 过度工具，将 fromValue 转换为 toValue
 
  @param fromValue 起始值
  @param toValue 结束值

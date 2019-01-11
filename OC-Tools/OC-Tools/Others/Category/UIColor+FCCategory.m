@@ -32,37 +32,42 @@
 
 //十六进制色值字符串(0xffffff 活 #ffffff) 转 UIColor
 + (instancetype)fc_hexValueString:(NSString *)hexValueString{
-    if ([hexValueString hasPrefix:@"0x"] || [hexValueString hasPrefix:@"#"]) {
-        hexValueString = [hexValueString stringByReplacingOccurrencesOfString:@"0x" withString:@""];
-        hexValueString = [hexValueString stringByReplacingOccurrencesOfString:@"#" withString:@""];
-    }else{
+    //
+    if (![hexValueString fc_evaluateWithRegex:@"^(0x|#)(([a-zA-Z0-9]{3})|([a-zA-Z0-9]{6}))"]) {
         return [UIColor clearColor];
     }
+    //
+    if([hexValueString hasPrefix:@"0x"]){
+        hexValueString = [hexValueString stringByReplacingOccurrencesOfString:@"0x" withString:@""];
+    }else if ([hexValueString hasPrefix:@"#"]){
+        hexValueString = [hexValueString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+    }
+    
     CGFloat alpha, red, blue, green;
     switch ([hexValueString length]) {
         case 3: // #RGB
-            alpha = 1.0f;
             red   = [self colorComponentFrom: hexValueString start: 0 length: 1];
             green = [self colorComponentFrom: hexValueString start: 1 length: 1];
             blue  = [self colorComponentFrom: hexValueString start: 2 length: 1];
+            alpha = 1.0f;
             break;
-        case 4: // #ARGB
-            alpha = [self colorComponentFrom: hexValueString start: 0 length: 1];
-            red   = [self colorComponentFrom: hexValueString start: 1 length: 1];
-            green = [self colorComponentFrom: hexValueString start: 2 length: 1];
-            blue  = [self colorComponentFrom: hexValueString start: 3 length: 1];
+        case 4: // #RGBA
+            red   = [self colorComponentFrom: hexValueString start: 0 length: 1];
+            green = [self colorComponentFrom: hexValueString start: 1 length: 1];
+            blue  = [self colorComponentFrom: hexValueString start: 2 length: 1];
+            alpha = [self colorComponentFrom: hexValueString start: 3 length: 1];
             break;
         case 6: // #RRGGBB
-            alpha = 1.0f;
             red   = [self colorComponentFrom: hexValueString start: 0 length: 2];
             green = [self colorComponentFrom: hexValueString start: 2 length: 2];
             blue  = [self colorComponentFrom: hexValueString start: 4 length: 2];
+            alpha = 1.0f;
             break;
-        case 8: // #AARRGGBB
-            alpha = [self colorComponentFrom: hexValueString start: 0 length: 2];
-            red   = [self colorComponentFrom: hexValueString start: 2 length: 2];
-            green = [self colorComponentFrom: hexValueString start: 4 length: 2];
-            blue  = [self colorComponentFrom: hexValueString start: 6 length: 2];
+        case 8: // #RRGGBBAA
+            red   = [self colorComponentFrom: hexValueString start: 0 length: 2];
+            green = [self colorComponentFrom: hexValueString start: 2 length: 2];
+            blue  = [self colorComponentFrom: hexValueString start: 4 length: 2];
+            alpha = [self colorComponentFrom: hexValueString start: 6 length: 2];
             break;
         default:
             blue=0;
