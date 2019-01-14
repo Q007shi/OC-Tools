@@ -89,11 +89,15 @@
 }
 
 //fromColor 到 toColor 的渐变色
-+ (instancetype)fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent{
++ (instancetype)fc_fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent{
+    return [self fc_fromColor:fromColor toColor:toColor percent:percent alpha:1];
+}
+//fromColor 到 toColor 的渐变色
++ (instancetype)fc_fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent alpha:(CGFloat)alpha{
     percent = MAX(0, MIN(1, percent));
     struct RGBA fromRGBA = fromColor.fc_rgba;
     struct RGBA toRGBA = toColor.fc_rgba;
-    return [UIColor colorWithRed:(fromRGBA.R + (toRGBA.R - fromRGBA.R)*percent) green:(fromRGBA.G + (toRGBA.G - fromRGBA.G)*percent) blue:(fromRGBA.B + (toRGBA.B - fromRGBA.B)*percent) alpha:1];
+    return [UIColor colorWithRed:(fromRGBA.R + (toRGBA.R - fromRGBA.R)*percent) green:(fromRGBA.G + (toRGBA.G - fromRGBA.G)*percent) blue:(fromRGBA.B + (toRGBA.B - fromRGBA.B)*percent) alpha:alpha];
 }
 
 @end

@@ -19,6 +19,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"测试";
+    self.view.backgroundColor = [UIColor fc_hexValueString:@"0x999999"];
     
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
