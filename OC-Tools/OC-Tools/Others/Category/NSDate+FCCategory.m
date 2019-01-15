@@ -11,7 +11,7 @@
 @implementation NSDate (FCCategory)
 
 //将当前时间转换为 YYYY-MM-dd HH:mm:ss
-+ (NSString *)date2String{
++ (NSString *)fc_nowDate2String{
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"YYYY-MM-dd HH:mm:ss";
     //    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
@@ -22,7 +22,8 @@
 }
 
 //将当前时间转换为制定格式字符串
-+ (NSString *)date2Stirng:(NSString *)dateFormat{
++ (NSString *)fc_nowDate2StirngWithDateformat:(NSString *)dateFormat{
+    if (dateFormat.fc_isEmpty){ return @""; }
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = dateFormat;
     //    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
@@ -32,7 +33,8 @@
     return  [dateFormatter stringFromDate:[NSDate date]];
 }
 
-+ (instancetype)dateFormat:(NSString *)dateFormat dateString:(NSString *)dateString{
+//根据 dateFormat 时间格式，将时间字符串 dateString 转换为 NSDate
++ (instancetype)fc_parseDateWithDateformat:(NSString *)dateFormat dateString:(NSString *)dateString{
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = dateFormat;
     //    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
@@ -42,7 +44,7 @@
     return [dateFormatter dateFromString:dateString];
 }
 //将当前时间转换为毫秒时间戳
-+ (NSString *)millisecondTimeStamp{
++ (NSString *)fc_millisecondTimeStamp{
     NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];
     NSTimeInterval time=[date timeIntervalSince1970]*1000;//*1000 是精确到毫秒，不乘就是精确到秒
     NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
