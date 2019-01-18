@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 获取当前颜色的 RGBA 值 */
 - (struct RGBA)fc_rgba;
 
+/** 随机色 */
++ (instancetype)fc_randomColor;
+
 /** 获取当前颜色的透明度 */
 - (CGFloat)fc_alpha;
 

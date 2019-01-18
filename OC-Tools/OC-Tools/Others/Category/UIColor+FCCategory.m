@@ -25,6 +25,10 @@
     return CGColorGetAlpha(self.CGColor);
 }
 
++ (instancetype)fc_randomColor{
+    return [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+}
+
 //十六进制色值(0xffffff)转 UIColor
 + (instancetype)fc_hexValue:(UInt32)hexValue{
     return [UIColor colorWithRed:((CGFloat)((hexValue & 0xff0000) >> 16))/255.0 green:((CGFloat)((hexValue & 0xff00) >> 8))/255.0 blue:((CGFloat)(hexValue & 0xff))/255.0 alpha:1];
