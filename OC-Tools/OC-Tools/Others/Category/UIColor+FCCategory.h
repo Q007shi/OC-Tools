@@ -41,7 +41,17 @@ NS_ASSUME_NONNULL_BEGIN
  @param percent 百分比
  @return 当前颜色
  */
-+ (instancetype)fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent;
++ (instancetype)fc_fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent;
+/**
+ fromColor 到 toColor 的渐变色
+ 
+ @param fromColor 起始颜色
+ @param toColor 结束颜色
+ @param percent 百分比
+ @param alpha 透明度
+ @return 当前颜色
+ */
++ (instancetype)fc_fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent alpha:(CGFloat)alpha;
 
 @end
 

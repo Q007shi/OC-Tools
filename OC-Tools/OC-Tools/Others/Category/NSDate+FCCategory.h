@@ -12,7 +12,7 @@
 @interface NSDate (FCCategory)
 
 /** 将当前时间转换为 YYYY-MM-dd HH:mm:ss */
-+ (NSString *)date2String;
++ (NSString *)fc_nowDate2String;
 
 /**
  将当前时间转换为制定格式字符串
@@ -20,7 +20,7 @@
  @param dateFormat 时间格式
  @return 时间字符串
  */
-+ (NSString *)date2Stirng:(NSString *)dateFormat;
++ (NSString *)fc_nowDate2StirngWithDateformat:(NSString *)dateFormat;
 
 
 /**
@@ -30,11 +30,11 @@
  @param dateString 时间字符串
  @return date
  */
-+ (instancetype)dateFormat:(NSString *)dateFormat dateString:(NSString *)dateString;
++ (instancetype)fc_parseDateWithDateformat:(NSString *)dateFormat dateString:(NSString *)dateString;
 /**
  *将当前时间转换为毫秒时间戳
  */
-+ (NSString *)millisecondTimeStamp;
++ (NSString *)fc_millisecondTimeStamp;
 
 @end
 

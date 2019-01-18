@@ -19,6 +19,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"测试";
+    self.view.backgroundColor = [UIColor fc_hexValueString:@"0x999999"];
     
     NSMutableArray *array = [NSMutableArray new];
     for (int t = 0; t< 4; t++) {
