@@ -50,5 +50,14 @@
     NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
     return timeString;
 }
+//将当前 Date 转换为毫秒时间戳
+- (NSString *)fc_millisecondTimeStamp{
+    NSString *timeString = @"0";
+    if (self) {
+        NSTimeInterval time=[self timeIntervalSince1970]*1000;//*1000 是精确到毫秒，不乘就是精确到秒
+        timeString = [NSString stringWithFormat:@"%.0f", time];
+    }
+    return timeString;
+}
 
 @end

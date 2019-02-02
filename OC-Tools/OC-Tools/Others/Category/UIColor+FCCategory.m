@@ -104,4 +104,22 @@
     return [UIColor colorWithRed:(fromRGBA.R + (toRGBA.R - fromRGBA.R)*percent) green:(fromRGBA.G + (toRGBA.G - fromRGBA.G)*percent) blue:(fromRGBA.B + (toRGBA.B - fromRGBA.B)*percent) alpha:alpha];
 }
 
+//将当前颜色转换成 10X10 的图片
+- (UIImage *)fc_transformImage{
+    //图片尺寸
+    CGRect rect = CGRectMake(0, 0, 10, 10);
+    //填充画笔
+    UIGraphicsBeginImageContext(rect.size);
+    //根据所传颜色绘制
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, self ? self.CGColor : [UIColor clearColor].CGColor);
+    //显示区域
+    CGContextFillRect(context, rect);
+    // 得到图片信息
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext().mutableCopy;
+    //消除画笔
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end

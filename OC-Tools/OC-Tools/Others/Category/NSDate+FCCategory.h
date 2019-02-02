@@ -36,5 +36,12 @@
  */
 + (NSString *)fc_millisecondTimeStamp;
 
+/**
+ 将当前 Date 转换为毫秒时间戳
+
+ @return 毫米时间戳字符串
+ */
+- (NSString *)fc_millisecondTimeStamp;
+
 @end
 

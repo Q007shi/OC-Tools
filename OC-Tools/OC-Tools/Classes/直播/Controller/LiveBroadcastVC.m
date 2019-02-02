@@ -7,8 +7,12 @@
 //
 
 #import "LiveBroadcastVC.h"
+#import "InputActionView.h"
 
 @interface LiveBroadcastVC ()
+
+/** <#aaa#> */
+@property(nonatomic,strong)InputActionView *inputActionView;
 
 @end
 
@@ -16,17 +20,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor lightGrayColor];
     self.navigationItem.title = @"直播间";
+    //
+    [self setupUI];
+}
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    //
+    [self setupLayout];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
-*/
+
+#pragma mark - 初始化
+- (void)setupUI{
+    [self.view addSubview:self.inputActionView];
+}
+- (void)setupLayout{
+    [self.inputActionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.height.equalTo(@(50));
+    }];
+}
+
+
+#pragma mark - getter 方法
+- (InputActionView *)inputActionView{
+    if (!_inputActionView) {
+        _inputActionView = [InputActionView new];
+        _inputActionView.actionViewType = InputActionViewTypeEmoji | InputActionViewTypeCustomAction;
+    }
+    return _inputActionView;
+}
+
+
 
 @end

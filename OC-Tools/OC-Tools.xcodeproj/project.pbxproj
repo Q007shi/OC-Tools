@@ -13,6 +13,8 @@
 		242571AE21D20ECB00F62434 /* NSDate+FCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571AD21D20ECB00F62434 /* NSDate+FCCategory.m */; };
 		242571B221D2114900F62434 /* FCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571B121D2114900F62434 /* FCImageView.m */; };
 		242571BA21D214F000F62434 /* ActionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 242571B921D214F000F62434 /* ActionVC.m */; };
+		243EBB00220528D3005ED57C /* InputActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 243EBAFF220528D3005ED57C /* InputActionView.m */; };
+		243EBB0322053F9C005ED57C /* UIButton+FCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 243EBB0222053F9C005ED57C /* UIButton+FCButton.m */; };
 		244964BF21C8C9D70092A26D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 244964BE21C8C9D70092A26D /* AppDelegate.m */; };
 		244964C721C8C9D80092A26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244964C621C8C9D80092A26D /* Assets.xcassets */; };
 		244964CA21C8C9D80092A26D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244964C821C8C9D80092A26D /* LaunchScreen.storyboard */; };
@@ -56,6 +58,11 @@
 		242571B821D214F000F62434 /* ActionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionVC.h; sourceTree = "<group>"; };
 		242571B921D214F000F62434 /* ActionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionVC.m; sourceTree = "<group>"; };
 		24285B6A21D3294E004E470D /* FCCategoryBaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCategoryBaseCellModel.m; sourceTree = "<group>"; };
+		243EBAFE220528D3005ED57C /* InputActionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputActionView.h; sourceTree = "<group>"; };
+		243EBAFF220528D3005ED57C /* InputActionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputActionView.m; sourceTree = "<group>"; };
+		243EBB0122053F9C005ED57C /* UIButton+FCButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+FCButton.h"; sourceTree = "<group>"; };
+		243EBB0222053F9C005ED57C /* UIButton+FCButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+FCButton.m"; sourceTree = "<group>"; };
+		243EBB0422057A80005ED57C /* ConstHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstHeader.h; sourceTree = "<group>"; };
 		244964BA21C8C9D70092A26D /* OC-Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OC-Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		244964BD21C8C9D70092A26D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		244964BE21C8C9D70092A26D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -139,6 +146,7 @@
 				242571B421D2126700F62434 /* CategoryHeader.h */,
 				242571B521D212EF00F62434 /* BaseHeader.h */,
 				24793F2521E494EC005848D1 /* UtilHeader.h */,
+				243EBB0422057A80005ED57C /* ConstHeader.h */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -161,6 +169,15 @@
 				242571B921D214F000F62434 /* ActionVC.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		243EBAFD22052875005ED57C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				243EBAFE220528D3005ED57C /* InputActionView.h */,
+				243EBAFF220528D3005ED57C /* InputActionView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		244964B121C8C9D70092A26D = {
@@ -239,6 +256,8 @@
 				242571AA21D20DE500F62434 /* NSString+CFCategory.m */,
 				242571AC21D20ECB00F62434 /* NSDate+FCCategory.h */,
 				242571AD21D20ECB00F62434 /* NSDate+FCCategory.m */,
+				243EBB0122053F9C005ED57C /* UIButton+FCButton.h */,
+				243EBB0222053F9C005ED57C /* UIButton+FCButton.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -293,6 +312,7 @@
 		24AD0C1B21E2FE1C00C40EEA /* 直播 */ = {
 			isa = PBXGroup;
 			children = (
+				243EBAFD22052875005ED57C /* View */,
 				24AD0C1C21E2FE2500C40EEA /* Controller */,
 			);
 			path = "直播";
@@ -551,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24AD0C2821E301DF00C40EEA /* CTMediator+Actions.m in Sources */,
+				243EBB0322053F9C005ED57C /* UIButton+FCButton.m in Sources */,
 				24AD0C1F21E2FE7200C40EEA /* LiveBroadcastVC.m in Sources */,
 				24A0BCB021D32AB50038BE46 /* FCCategoryBaseCellModel.m in Sources */,
 				242571AE21D20ECB00F62434 /* NSDate+FCCategory.m in Sources */,
@@ -571,6 +592,7 @@
 				242571A821D20D9900F62434 /* UIView+CFFrame.m in Sources */,
 				242571BA21D214F000F62434 /* ActionVC.m in Sources */,
 				242571AB21D20DE500F62434 /* NSString+CFCategory.m in Sources */,
+				243EBB00220528D3005ED57C /* InputActionView.m in Sources */,
 				24A0BCB421D333840038BE46 /* ActionVCModel.m in Sources */,
 				249ADB8921D7102900D9D72C /* UITableViewRowAction+FCCategory.m in Sources */,
 				5561BF8921CFCDEC006C0F38 /* FCCategoryIndicatorCellModel.m in Sources */,

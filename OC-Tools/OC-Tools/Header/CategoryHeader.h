@@ -15,6 +15,7 @@
 #import "UIView+CFFrame.h"
 #import "NSDate+FCCategory.h"
 #import "UITableView+RowAction.h"
+#import "UIButton+FCButton.h"
 
 
 #endif /* CategoryHeader_h */

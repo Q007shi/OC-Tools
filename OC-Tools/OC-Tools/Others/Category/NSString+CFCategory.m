@@ -22,7 +22,11 @@
     if (error) {
         return nil;
     }else{
-        return [re matchesInString:self options:0 range:NSMakeRange(0, self.length)];
+        if (self) {
+            return [re matchesInString:self options:0 range:NSMakeRange(0, self.length)];
+        }else{
+            return nil;
+        }
     }
 }
 

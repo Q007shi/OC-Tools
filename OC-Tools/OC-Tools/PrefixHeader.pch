@@ -24,6 +24,9 @@
 //工具类
 #import "UtilHeader.h"
 
+//常量
+#import "ConstHeader.h"
+
 //第三方
 #import <UIImageView+WebCache.h>
 #import <MJExtension.h>

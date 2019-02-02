@@ -53,6 +53,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)fc_fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor percent:(CGFloat)percent alpha:(CGFloat)alpha;
 
+/**
+ 将当前颜色转换成 10X10 的图片
+
+ @return 10X10 的图片
+ */
+- (UIImage *)fc_transformImage;
+
 @end
 
 NS_ASSUME_NONNULL_END
