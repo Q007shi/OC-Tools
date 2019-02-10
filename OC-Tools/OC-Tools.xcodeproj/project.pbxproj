@@ -239,6 +239,7 @@
 		244964D521C8D98F0092A26D /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				55B6D28322104D5E005F076E /* Const */,
 				5561BF6821CF6F45006C0F38 /* BaseObject */,
 				244964D621C8D99B0092A26D /* Category */,
 			);
@@ -432,6 +433,13 @@
 				5561BF8B21CFD08E006C0F38 /* FCCategoryIndicatorCell.m */,
 			);
 			path = Indicator;
+			sourceTree = "<group>";
+		};
+		55B6D28322104D5E005F076E /* Const */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Const;
 			sourceTree = "<group>";
 		};
 		85D9F76FEDBFD53AB36C5336 /* Frameworks */ = {

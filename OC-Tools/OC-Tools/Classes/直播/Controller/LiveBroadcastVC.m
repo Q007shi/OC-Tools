@@ -24,12 +24,13 @@
     self.navigationItem.title = @"直播间";
     //
     [self setupUI];
-}
-- (void)viewWillLayoutSubviews{
-    [super viewWillLayoutSubviews];
-    //
     [self setupLayout];
+    NSLog(@"%f",k_bottomHeight);
+    //监听键盘
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
@@ -40,11 +41,38 @@
     [self.view addSubview:self.inputActionView];
 }
 - (void)setupLayout{
+    WEAKSELF
     [self.inputActionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.right.equalTo(self.view);
+        make.left.right.equalTo(weakSelf.view);
+        make.bottom.equalTo(weakSelf.view).offset(-k_bottomHeight);
         make.height.equalTo(@(50));
     }];
 }
+
+#pragma mark - 键盘事件监听
+- (void)keyboardWillShow:(NSNotification *)notification{
+    NSDictionary *dic = notification.userInfo;
+    NSLog(@"%@",dic);
+    CGRect keyboardRect  = [dic[@"UIKeyboardFrameEndUserInfoKey"]CGRectValue];
+    CGFloat duration = [dic[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+    WEAKSELF
+    [UIView animateWithDuration:duration animations:^{
+        [weakSelf.inputActionView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(weakSelf.view).offset(-keyboardRect.size.height);
+        }];
+    }];
+}
+- (void)keyboardWillHide:(NSNotification *)notification{
+    NSDictionary *dic = notification.userInfo;
+    CGFloat duration = [dic[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+    WEAKSELF
+    [UIView animateWithDuration:duration animations:^{
+        [weakSelf.inputActionView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(weakSelf.view).offset(-k_bottomHeight);
+        }];
+    }];
+}
+
 
 
 #pragma mark - getter 方法

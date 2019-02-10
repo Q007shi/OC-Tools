@@ -39,11 +39,9 @@
         self.buttonHeight = frame.size.height - 2*InputActionView_SPACE;
         self.backgroundColor = [UIColor whiteColor];
         _actionViewType = InputActionViewTypeAudio | InputActionViewTypeEmoji | InputActionViewTypeCustomAction;
+        [self.inputTextView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
         [self setupUI];
         [self setupLayout];
-        //监听键盘
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     }
     return self;
 }
@@ -115,6 +113,23 @@
     }];
 }
 
+- (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context{
+    WEAKSELF
+    if (self.inputTextView.contentSize.height <= 40) {
+        [self mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(50));
+        }];
+    }else if (self.inputTextView.contentSize.height <= 100){
+        [self mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(weakSelf.inputTextView.contentSize.height));
+        }];
+    }else{
+        [self mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(100));
+        }];
+    }
+}
+
 - (void)setActionViewType:(InputActionViewType)actionViewType{
     _actionViewType = actionViewType;
     if (actionViewType & InputActionViewTypeAudio) {
@@ -142,30 +157,6 @@
     }
     [self setNeedsLayout];
     [self layoutIfNeeded];
-}
-
-#pragma mark - 键盘事件监听
-- (void)keyboardWillShow:(NSNotification *)notification{
-    NSDictionary *dic = notification.userInfo;
-    NSLog(@"%@",dic);
-    CGRect keyboardRect  = [dic[@"UIKeyboardFrameBeginUserInfoKey"]CGRectValue];
-    CGFloat duration = [dic[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
-    WEAKSELF
-    [UIView animateWithDuration:duration animations:^{
-        [weakSelf mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(weakSelf.superview).offset(-keyboardRect.size.height);
-        }];
-    }];
-}
-- (void)keyboardWillHide:(NSNotification *)notification{
-    NSDictionary *dic = notification.userInfo;
-    CGFloat duration = [dic[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
-    WEAKSELF
-    [UIView animateWithDuration:duration animations:^{
-        [weakSelf mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(weakSelf.superview.mas_bottom);
-        }];
-    }];
 }
 
 #pragma mark - 事件
@@ -207,6 +198,7 @@
     if (!_inputTextView) {
         _inputTextView = [UITextView new];
         _inputTextView.backgroundColor = [UIColor fc_randomColor];
+        _inputTextView.showsHorizontalScrollIndicator = NO;
     }
     return _inputTextView;
 }

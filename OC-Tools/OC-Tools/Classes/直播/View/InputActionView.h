@@ -13,11 +13,11 @@ typedef NS_ENUM(NSUInteger,InputActionViewType){
     InputActionViewTypeEmoji = 1 << 1,//表情
     InputActionViewTypeCustomAction = 1 << 2,//自定义事件
 };
-
 @interface InputActionView : UIView
 
 /** 内容默认：InputActionViewTypeAudio | InputActionViewTypeEmoji | InputActionViewTypeCustomAction */
 @property(nonatomic,assign)InputActionViewType actionViewType;
 
 @end
+
 
