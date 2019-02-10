@@ -42,7 +42,20 @@
         // make.bottom.equalTo(self);
     }];
     
+    UITextField *textF = [[UITextField alloc]initWithFrame:CGRectMake(10, 200, 100, 50)];
+    textF.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:textF];
+    textF.allowsEditingTextAttributes = NO;
+    NSTextAttachment *attachment = [NSTextAttachment new];
+    attachment.image = [UIImage imageNamed:@"good1_30x30_"];
+    attachment.bounds = CGRectMake(0, 0, 30, 30);
+    textF.attributedText = [NSAttributedString attributedStringWithAttachment:attachment];
     
+    UIImageView *iView = [[UIImageView alloc]initWithImage:attachment.image];
+    [self.view addSubview:iView];
+    iView.center = self.view.center;
+    
+    textF.selectedTextRange;
     
     
 }

@@ -15,7 +15,6 @@ struct RGBA{
     CGFloat A;//[0,1]
 };
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (FCCategory)
 
@@ -62,4 +61,3 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
